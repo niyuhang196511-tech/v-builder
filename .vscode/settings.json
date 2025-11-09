@@ -1,0 +1,20 @@
+{
+    "stylelint.validate": ["css", "scss", "vue"],
+    "stylelint.snippet": ["css", "scss", "vue"],
+    "stylelint.configFile": "./stylelint.config.mjs",
+    "stylelint.configBasedir": "./",
+    "stylelint.reportInvalidScopeDisables": false,
+    "stylelint.reportNeedlessDisables": false,
+    "css.validate": false,
+    "scss.validate": false,
+    "less.validate": false,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}

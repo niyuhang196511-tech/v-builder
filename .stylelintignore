@@ -1,0 +1,12 @@
+# 忽略 HTML 文件
+**/*.html
+
+# 忽略 node_modules
+**/node_modules/**
+
+# 忽略构建输出
+**/dist/**
+**/build/**
+
+# 忽略其他不需要检查的文件
+**/*.min.css
