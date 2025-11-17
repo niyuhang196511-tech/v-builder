@@ -70,12 +70,15 @@ export type QuoteBlockItem = BaseBlockItem<QuoteBlockProps>
 /**
  * Chart类型
  */
-export type ChartType = 'echarts' | 'canvas' | 'svg'
+export type RendererType = 'canvas' | 'svg'
+
+export type ChartType = 'bar' | 'line' | 'pie'
 
 /**
  * Chart区块属性类型
  */
 export interface ChartBlockProps {
+    rendererType: RendererType
     chartType: ChartType
 }
 

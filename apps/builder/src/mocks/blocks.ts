@@ -32,7 +32,8 @@ export const blocks: BlockItem[] = [
         type: 'Chart',
         label: 'Charts',
         props: {
-            chartType: 'echarts',
+            rendererType: 'canvas',
+            chartType: 'pie',
         },
     },
     {
