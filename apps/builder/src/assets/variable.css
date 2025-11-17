@@ -40,6 +40,9 @@
 
     /* theme */
     --color-primary: var(--color-blue-600);
+    --color-primary-hover: var(--color-blue-700);
+    --color-primary-active: var(--color-blue-800);
+    --color-primary-disabled: var(--color-blue-300);
 
     /* mics */
     --panel-width: 360px;

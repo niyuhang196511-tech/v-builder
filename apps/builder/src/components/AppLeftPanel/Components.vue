@@ -1,10 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+
+import { useAppEditorStore } from '@/stores/appEditor'
+
+const appEditorStore = useAppEditorStore()
+const { blocks } = storeToRefs(appEditorStore)
+</script>
 <template>
     <ul class="outline-list">
-        <div class="outline-item" v-for="i in 3" :key="i">
-            <div class="outline-item-icon">icon</div>
-            <span class="outline-item-name">Name</span>
-            <span class="outline-item-title">Title</span>
+        <div class="outline-item" v-for="block in blocks" :key="block.id">
+            <component class="outline-item-icon" :is="$blocksMap.get(block.type)?.icon" />
+            <span class="outline-item-name">{{ $blocksMap.get(block.type)?.label }}</span>
+            <span class="outline-item-title">{{ block.label }}</span>
         </div>
     </ul>
 </template>

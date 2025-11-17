@@ -5,7 +5,7 @@ import { Plus } from '@icon-park/vue-next'
 import { useDisclosure } from '@/hooks/useDisclosure'
 import BlocksDrawer from './BlocksDrawer.vue'
 
-const [isOpen, { toggle }] = useDisclosure(false)
+const [isComponentDrawerOpened, { toggle }] = useDisclosure(false)
 </script>
 
 <template>
@@ -22,7 +22,7 @@ const [isOpen, { toggle }] = useDisclosure(false)
             <div class="app-left-panel-split tiny-scrollbar">
                 <div class="drawer-header">
                     <div class="drawer-title">COMPONENTS</div>
-                    <button :class="['drawer-component-adder']" @click="toggle">
+                    <button :class="['drawer-component-adder', isComponentDrawerOpened && 'opened']" @click="toggle">
                         <Plus size="18" />
                     </button>
                 </div>
@@ -31,8 +31,8 @@ const [isOpen, { toggle }] = useDisclosure(false)
                 </div>
             </div>
         </div>
-        <Transition name="">
-            <div class="app-left-sub-panel-drawer" v-show="isOpen">
+        <Transition name="sub-panel-drawer">
+            <div class="sub-panel-drawer-content" v-if="isComponentDrawerOpened">
                 <BlocksDrawer />
             </div>
         </Transition>
@@ -106,11 +106,27 @@ const [isOpen, { toggle }] = useDisclosure(false)
         }
     }
 
-    .app-left-sub-panel-drawer {
-        width: var(--panel-width);
+    .sub-panel-drawer {
         height: 100%;
-        box-shadow: var(--color-gray-300) 1px 0 0;
+    }
+
+    .sub-panel-drawer-enter-active,
+    .sub-panel-drawer-leave-active {
+        transition: opacity 0.2s cubic-bezier(0.3, 0.1, 0.3, 1);
+    }
+
+    .sub-panel-drawer-enter-from,
+    .sub-panel-drawer-leave-to {
+        opacity: 0;
+    }
+
+    .sub-panel-drawer-content {
+        width: 300px;
+        height: 100%;
+        padding: 16px 16px 16px 20px;
         overflow: hidden;
+        background-color: rgb(250, 250, 251);
+        box-shadow: rgba(128, 128, 128, 0.12) 1px 0px 0px;
     }
 }
 </style>
